@@ -10,7 +10,6 @@
         return true;
     }
 }</script>
-<script src="./loginportal.js"></script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -422,7 +421,8 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                         <tr>
                                                             <th><label for="email">Email Address</label></th>
                                                             <td><input id="email" maxlength="64" name="email" size="48"
-                                                                       style="width: 200px;" value="" type="text"
+                                                                       style="width: 200px;" value="" type="email"
+                                                                       data-validate="{ required: true, format: &#39;email&#39;, help: &#39;Email address is required.&#39; }"
                                                                        autocomplete="off" autocapitalize="off"
                                                                        spellcheck="false" class="maxlength_enabled">
                                                             </td>
@@ -432,6 +432,7 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                             <td><input id="password" maxlength="64" name="password"
                                                                        size="48" style="width: 200px;" type="password"
                                                                        value=""
+                                                                       data-validate="{ required: true, help: &#39;Password is required.&#39; }"
                                                                        autocomplete="off" autocapitalize="off"
                                                                        spellcheck="false"><a style="margin-left: 15px;"
                                                                                              href="javascript:void(0);">Forgot
@@ -441,7 +442,7 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                     </table>
                                                     <div class="action">
                                                         <button class="default"
-                                                                onclick="location.href='portal.html'; return (false);"
+                                                                onclick="if (FW.Validate(this)) FW.Postback(this); return (false);"
                                                                 type="submit">Login
                                                         </button>
                                                     </div>
