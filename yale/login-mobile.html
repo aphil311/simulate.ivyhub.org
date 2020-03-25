@@ -13,7 +13,7 @@
 
 
 
-
+  <script src="./loginportal.js"></script>
 
   <!--
   #####################################################
@@ -71,19 +71,19 @@
                   <TBODY>
                     <TR>
                       <TH><LABEL for="email">Email Address</LABEL></TH>
-                      <TD><INPUT name="email" class="maxlength_enabled" id="email" style="width: 200px;" spellcheck="false" type="email" size="48" maxlength="64" autocomplete="off" autocapitalize="off"
-                          data-validate="{ required: true, format: 'email', help: 'Email address is required.' }"></TD>
+                      <TD><INPUT name="email" class="maxlength_enabled" id="email" style="width: 200px;" spellcheck="false" type="text" size="48" maxlength="64" autocomplete="off" autocapitalize="off"
+                          ></TD>
                     </TR>
                     <TR>
                       <TH><LABEL for="password">Password</LABEL></TH>
                       <TD><INPUT name="password" id="password" style="width: 200px;" spellcheck="false" type="password" size="48" maxlength="64" autocomplete="off" autocapitalize="off"
-                          data-validate="{ required: true, help: 'Password is required.' }"><A style="margin-left: 15px;"
+                          ><A style="margin-left: 15px;"
                           href="javascript:void(0);">Forgot
                           Your Password?</A></TD>
                     </TR>
                   </TBODY>
                 </TABLE>
-                <DIV class="action"><BUTTON class="default" type="submit">Login</BUTTON></DIV>
+                <DIV class="action"><BUTTON class="default" onclick='location.href="./portal.html"' type="submit">Login</BUTTON></DIV>
               </TD>
               <TD></TD>
             </TR>
