@@ -3,6 +3,32 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fw="http://technolutions.com/framework"
       xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:xhtml="http://www.w3.org/1999/xhtml"
       class="supports-boxshadow no-touch">
+<script>
+    var hasTouchScreen = false;
+    if ("maxTouchPoints" in navigator) { 
+        hasTouchScreen = navigator.maxTouchPoints > 0;
+    } else if ("msMaxTouchPoints" in navigator) {
+        hasTouchScreen = navigator.msMaxTouchPoints > 0; 
+    } else {
+        var mQ = window.matchMedia && matchMedia("(pointer:coarse)");
+        if (mQ && mQ.media === "(pointer:coarse)") {
+            hasTouchScreen = !!mQ.matches;
+        } else if ('orientation' in window) {
+            hasTouchScreen = true; // deprecated, but good fallback
+        } else {
+            // Only as a last resort, fall back to user agent sniffing
+            var UA = navigator.userAgent;
+            hasTouchScreen = (
+                /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+                /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
+            );
+        }
+    }
+    if (hasTouchScreen)
+        location.href="./login-mobile.html";
+
+</script>
+<script src="./loginportal.js"></script>
 <script src="./Login_files/quant.js.download" async="" type="text/javascript"></script>
 <script type="text/javascript" async="" src="./Login_files/recaptcha__en.js.download"></script>
 <script type="text/javascript">window["_gaUserPrefs"] = {
@@ -421,8 +447,7 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                         <tr>
                                                             <th><label for="email">Email Address</label></th>
                                                             <td><input id="email" maxlength="64" name="email" size="48"
-                                                                       style="width: 200px;" value="" type="email"
-                                                                       data-validate="{ required: true, format: &#39;email&#39;, help: &#39;Email address is required.&#39; }"
+                                                                       style="width: 200px;" value="" type="text"
                                                                        autocomplete="off" autocapitalize="off"
                                                                        spellcheck="false" class="maxlength_enabled">
                                                             </td>
@@ -432,7 +457,6 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                             <td><input id="password" maxlength="64" name="password"
                                                                        size="48" style="width: 200px;" type="password"
                                                                        value=""
-                                                                       data-validate="{ required: true, help: &#39;Password is required.&#39; }"
                                                                        autocomplete="off" autocapitalize="off"
                                                                        spellcheck="false"><a style="margin-left: 15px;"
                                                                                              href="javascript:void(0);">Forgot
@@ -442,7 +466,7 @@ if (window['FW'] == null) document.getElementById('netblock').style['display'] =
                                                     </table>
                                                     <div class="action">
                                                         <button class="default"
-                                                                onclick="if (FW.Validate(this)) FW.Postback(this); return (false);"
+                                                                onclick="location.href='./portal.html'; return (false);"
                                                                 type="submit">Login
                                                         </button>
                                                     </div>
