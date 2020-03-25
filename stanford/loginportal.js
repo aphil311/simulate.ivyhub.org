@@ -3,27 +3,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     animateUsername(animatePassword);
     
-    // window.localLinkClicked = false;
-
-//     $("body").on("click", 'a', function() {
-//         var url = $(this).attr("href");
-
-//         // check if the link is relative or to your domain
-//         if (! /^https?:\/\/./.test(url) || /https?:\/\/ivyhub\.org/.test(url)) {
-//             window.localLinkClicked = true;
-//         }
-//         console.log("URL: " + url);
-//     });
-
-//     window.onbeforeunload = function() {
-//         if (window.localLinkClicked) {
-//             // do stuff
-//             console.log("If case");
-//         } else {
-//             // don't
-//             console.log("Else case");
-//         }
-//     }
     
 });
 
